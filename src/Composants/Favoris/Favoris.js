@@ -4,7 +4,7 @@ import {useEffect} from "react";
 
 export const Favoris = () => {
 
-    const favoris = useFavoris();
+    const {favoris, updateFavoris} = useFavoris();
     useEffect(() => {
         (async ()=>{
             const results = await(await fetch(`https://rickandmortyapi.com/api/character/[${favoris.join(",")}]`)).json;
