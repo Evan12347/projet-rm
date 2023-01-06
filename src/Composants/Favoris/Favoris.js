@@ -1,11 +1,10 @@
 import style from "./Favoris.module.css"
 import {useFavoris} from "../../Hook";
 import {useEffect} from "react";
-import {Link} from "react-router-dom";
 
 export const Favoris = () => {
 
-    const {favoris, updateFavoris} = useFavoris();
+    const favoris = useFavoris();
     useEffect(() => {
         (async ()=>{
             const results = await(await fetch(`https://rickandmortyapi.com/api/character/[${favoris.join(",")}]`)).json;
