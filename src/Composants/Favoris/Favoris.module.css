@@ -1,0 +1,15 @@
+.div {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+    align-items: center;
+    color: mediumpurple;
+}
+
+.titre{
+    color: mediumpurple;
+    text-align: center;
+    font-size: 25px;
+    font-family: "Monaco",sans-serif;
+    padding-top: 5px;
+}

@@ -1,0 +1,26 @@
+.nav{
+    display: flex;
+    background-color: midnightblue;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav a{
+    color:white;
+    text-decoration: none;
+    transition: .5s;
+}
+
+.nav a:hover{
+    color:cyan;
+}
+
+.image{
+    width: 150px;
+    height: 50px;
+}
+
+.image:hover{
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+}

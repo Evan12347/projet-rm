@@ -1,0 +1,63 @@
+.button{
+    background-color: darkseagreen;
+    border: 1px black solid;
+    outline: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 3px;
+    transition: .5s;
+}
+
+.button:hover{
+    background-color: seagreen;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.titre{
+    color: hotpink;
+    text-align: center;
+    font-family: "Monaco",sans-serif;
+    font-size: 25px;
+    padding-top: 5px;
+    padding-bottom: 8px;
+}
+
+.liste{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    grid-gap: 1rem;
+}
+
+.container{
+    display: flex;
+    padding: 5px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container a{
+    padding: 3px;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: .5s;
+    font-size: 20px;
+    text-align: center;
+}
+
+.container img{
+    width: 200px;
+    height: 200px;
+    border-radius: 10%;
+}
+
+.container a:hover{
+    color: indianred;
+}

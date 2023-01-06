@@ -1,0 +1,46 @@
+.button{
+    background-color: darkseagreen;
+    border: 1px black solid;
+    outline: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 3px;
+    transition: .5s;
+    position: absolute;
+}
+
+.buttonRight{
+    right: 10px;
+}
+
+.button:hover{
+    background-color: seagreen;
+}
+
+.titre{
+    color: darkseagreen;
+    text-align: center;
+    font-size: 25px;
+    font-family: "Monaco",sans-serif;
+    padding-top: 5px;
+    padding-bottom: 8px;
+}
+
+.container{
+    display: flex;
+    padding: 5px;
+    justify-content: center;
+}
+
+.container a{
+    display: flex;
+    padding: 3px;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: .5s;
+}
+
+.container a:hover{
+    color: limegreen;
+}

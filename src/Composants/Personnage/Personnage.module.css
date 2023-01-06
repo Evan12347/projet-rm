@@ -1,0 +1,27 @@
+.chargement {
+    text-align: center;
+    font-size: 30px;
+}
+
+.image {
+    width: 300px;
+    height: 300px;
+    border-radius: 10%;
+}
+
+.div {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+    font-size: 20px;
+    align-items: center;
+    color: antiquewhite;
+}
+
+.titre{
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    font-family: "Monaco",sans-serif;
+    padding-top: 5px;
+}

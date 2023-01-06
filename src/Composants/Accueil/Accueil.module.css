@@ -1,0 +1,48 @@
+.titre{
+    display: flex;
+    justify-content: center;
+    color: chocolate;
+    font-size: 25px;
+    font-family: "Monaco",sans-serif;
+    padding-top: 5px;
+    padding-bottom: 8px;
+}
+
+.liste{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.container{
+    display: flex;
+    padding: 5px;
+    justify-content: center;
+    border-radius: 10px;
+    border: black solid 1px;
+    flex-direction: column;
+    width: 230px;
+    height: max-content;
+    align-items: center;
+}
+
+.container a{
+    display: flex;
+    padding: 3px;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: .5s;
+    font-size: 20px;
+    text-align: center;
+}
+
+.container img{
+    width: 225px;
+    height: 225px;
+    border-radius: 10%;
+}
+
+.container a:hover{
+    color: orangered;
+}
