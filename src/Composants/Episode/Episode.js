@@ -27,10 +27,12 @@ export const Episode = () => {
     );
 
     return (
-        <div className={style.titre}>
-            {episode.episode} : {episode.name}<br/>
-            Sortie : {episode.air_date}<br/>
-            Personnages de l'épisode :<br/>
+        <div>
+            <div className={style.titre}>
+                {episode.episode} : {episode.name}<br/>
+                Sortie : {episode.air_date}<br/>
+                Personnages de l'épisode :<br/>
+            </div>
             <div className={style.liste}>
                 {personnages.map(personnage => (
                     <div key={personnage.id} className={style.container}>
@@ -41,5 +43,4 @@ export const Episode = () => {
             </div>
         </div>
     )
-
 }

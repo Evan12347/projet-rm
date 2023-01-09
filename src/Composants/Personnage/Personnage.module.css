@@ -25,3 +25,31 @@
     font-family: "Monaco",sans-serif;
     padding-top: 5px;
 }
+
+.liste{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    grid-gap: 1rem;
+}
+
+.container{
+    display: flex;
+    padding: 5px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container a{
+    padding: 3px;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: .5s;
+    font-size: 20px;
+    text-align: center;
+}
+
+.container a:hover{
+    color:cadetblue;
+}
