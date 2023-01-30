@@ -4,6 +4,7 @@ import {Navbar} from "./Navbar";
 import {Episode, ListeEpisode} from "./Episode";
 import {Personnage, ListePersonnage} from "./Personnage";
 import {Favoris} from "./Favoris";
+import {Inscription} from "./Inscription";
 
 export const Router = () => {
     const router = createBrowserRouter([
@@ -34,6 +35,10 @@ export const Router = () => {
                 {
                     path: 'favoris',
                     element: <Favoris/>,
+                },
+                {
+                    path: 'inscription',
+                    element: <Inscription/>,
                 },
             ],
         },

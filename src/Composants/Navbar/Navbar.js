@@ -16,6 +16,7 @@ export const Navbar = ()=>{
             <Link to={"/personnage"}>Personnages</Link>
             <Link to={"/episode"}>Episodes</Link>
             <Link to={"/favoris"}>Favoris</Link>
+            <Link to={"/inscription"}>Inscription</Link>
         </nav>
     )
 }
