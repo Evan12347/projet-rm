@@ -4,9 +4,28 @@ import {Navbar} from "./Navbar";
 import {Episode, ListeEpisode} from "./Episode";
 import {Personnage, ListePersonnage} from "./Personnage";
 import {Favoris} from "./Favoris";
-import {Inscription} from "./Inscription";
+import {Compte} from "./Compte/Compte";
+import {useEffect} from "react";
+import {auth} from "../Firebase";
+import {onAuthStateChanged} from "firebase/auth";
+import {useDispatch} from "react-redux";
+import {login} from "../Store/AuthSlice";
 
 export const Router = () => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        onAuthStateChanged(auth,(user) => {
+            if (user) {
+                console.log("User connected");
+                dispatch(login(user.uid));
+            } else {
+                console.log("User not connected");
+                dispatch(login(null));
+            }
+        })
+    }, []);
+
     const router = createBrowserRouter([
         {
             path: '/',
@@ -37,8 +56,8 @@ export const Router = () => {
                     element: <Favoris/>,
                 },
                 {
-                    path: 'inscription',
-                    element: <Inscription/>,
+                    path: 'compte',
+                    element: <Compte/>,
                 },
             ],
         },

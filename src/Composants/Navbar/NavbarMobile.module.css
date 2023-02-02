@@ -1,19 +1,18 @@
-.nav{
+.navMobile{
     display: flex;
     background-color: midnightblue;
     justify-content: space-around;
     align-items: center;
+    flex-direction: column;
 }
 
-
-
-.nav a{
+.navMobile a{
     color:white;
     text-decoration: none;
     transition: .5s;
 }
 
-.nav a:hover{
+.navMobile a:hover{
     color:cyan;
 }
 

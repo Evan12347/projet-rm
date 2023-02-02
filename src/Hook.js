@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useEffect, useLayoutEffect, useState} from "react";
 
 export const useFavoris = () => {
     const [favoris, setFavoris] = useState([]);
@@ -33,3 +33,15 @@ const getFavoris = () => {
 
     return [...new Set(cookie.split(",").filter(f => f.length).map(Number))];
 };
+
+export function useSize() {
+    const [size, setSize] = useState(window.innerWidth);
+
+    useLayoutEffect(() => {
+        const handleResize = () => setSize(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    return size;
+}
