@@ -2,6 +2,11 @@ import style from "./Inscription.module.css";
 import {useState} from "react";
 import {auth} from "../../Firebase";
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
+import RegisterIcon from '@mui/icons-material/AppRegistration';
+import RegisteredIcon from '@mui/icons-material/HowToReg';
+import {Login} from "@mui/icons-material";
 
 export const Inscription = ({statut}) => {
     const [email, setEmail] = useState("");
@@ -38,21 +43,23 @@ export const Inscription = ({statut}) => {
 
     return (
         <div className={style.container}>
-            <h1>Inscription</h1>
+            <h1 className={style.titre}>Inscription</h1>
             <form onSubmit={handleSubmit}>
                 <input className={style.container}
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(event) => setEmail(event.target.value)}
+                       type="email"
+                       placeholder="Email"
+                       value={email}
+                       onChange={(event) => setEmail(event.target.value)}
                 />
                 <input className={style.container}
-                    type="password"
-                    placeholder="Mot de passe"
-                    value={password}
-                    onChange={(event) => setPassword(event.target.value)}
+                       type="password"
+                       placeholder="Mot de passe"
+                       value={password}
+                       onChange={(event) => setPassword(event.target.value)}
                 />
-                <button type="submit">{statut ? "Inscription" : "Connexion"}</button>
+                <button type="submit" className={style.buttonWithIcon}>
+                    {statut ? (<>Créer un compte <RegisterIcon/></>) : (<>Connexion <LoginIcon/></>)}
+                </button>
             </form>
         </div>
     )

@@ -1,25 +1,26 @@
-.container{
-    display: flex;
-    padding: 5px;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.titre{
+.button{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5px;
-    color: orange;
-}
-
-.buttonWithIcon{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #3b5998;
+    background-color: forestgreen;
     color: white;
     border-radius: 5px;
     padding: 5px;
     width: 100%;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
 }
