@@ -12,10 +12,10 @@ export const Accueil = () => {
     const userId = useSelector(state => state.auth.id);
 
     async function loadPersonnages() {
-        const randoms = [];
-        for (let i = 0; i < 5; i++) {
+        let randoms = [];
+        while (randoms.length < 5) {
             const idRandom = Math.floor(Math.random() * 826);
-            randoms.push(idRandom);
+            randoms = [...(new Set([...randoms, idRandom]).values())]
         }
         const results = await (await fetch(`https://rickandmortyapi.com/api/character/[${randoms.join(",")}]`)).json();
         setPersonnages(results);

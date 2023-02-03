@@ -3,10 +3,7 @@ import {useState} from "react";
 import {auth} from "../../Firebase";
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
 import LoginIcon from '@mui/icons-material/Login';
-import LogoutIcon from '@mui/icons-material/Logout';
 import RegisterIcon from '@mui/icons-material/AppRegistration';
-import RegisteredIcon from '@mui/icons-material/HowToReg';
-import {Login} from "@mui/icons-material";
 
 export const Inscription = ({statut}) => {
     const [email, setEmail] = useState("");
@@ -14,10 +11,14 @@ export const Inscription = ({statut}) => {
 
     const isPasswordValid = (password) => password.length >= 8;
 
-    const handleSubmit = async (event) => {
+    const testEmail = (email) => {
         const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        return emailRegex.test(email);
+    }
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        if (!emailRegex.test(email)) {
+        if (!testEmail(email)) {
             return console.log("Email invalide");
         }
         if (statut) {
@@ -58,7 +59,7 @@ export const Inscription = ({statut}) => {
                        onChange={(event) => setPassword(event.target.value)}
                 />
                 <button type="submit" className={style.buttonWithIcon}>
-                    {statut ? (<>Créer un compte <RegisterIcon/></>) : (<>Connexion <LoginIcon/></>)}
+                    {statut ? (<><RegisterIcon/>Créer un compte</>) : (<><LoginIcon/>Connexion</>)}
                 </button>
             </form>
         </div>

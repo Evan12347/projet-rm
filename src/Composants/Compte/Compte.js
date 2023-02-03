@@ -5,6 +5,7 @@ import {auth} from "../../Firebase";
 import {signOut} from "firebase/auth";
 import LogoutIcon from "@mui/icons-material/Logout";
 import style from "./Compte.module.css";
+import RegisteredIcon from '@mui/icons-material/HowToReg';
 
 export const Compte = () => {
 
@@ -15,13 +16,20 @@ export const Compte = () => {
         <div>
             <h1>Compte</h1>
             {userId ? (
-                <button onClick={() => signOut(auth)}>Déconnexion<LogoutIcon/></button>
+                <div className={style.container}>
+                    <div className={style.titre}>
+                        <RegisteredIcon/> Connecté en tant que <strong>{auth.currentUser.email}</strong>
+                    </div>
+                    <button onClick={() => signOut(auth)} className={style.buttonDeconnexion}>
+                        <LogoutIcon/>Déconnexion
+                    </button>
+                </div>
             ) : (
                 <div className={style.form}>
                     <div className={style.container}>
                         <Inscription statut={statut}/>
                         <button onClick={() => setStatut(s => !s)} className={style.button}>
-                            {statut ? "Déjà inscrit ? Se connecter" : "Cliquez ici pour créer un compte"}
+                            {statut ? "Déjà inscrit ? Se connecter" : "Créer un compte ?"}
                         </button>
                     </div>
                 </div>
