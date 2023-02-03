@@ -16,7 +16,7 @@ export function NavbarMobile() {
                 <Link to={"/personnage"}>Personnages</Link>
                 <Link to={"/episode"}>Episodes</Link>
                 <Link to={"/favoris"}>Favoris</Link>
-                <Link to={"/inscription"}>Inscription</Link>
+                <Link to={"/compte"}>Compte</Link>
             </div>)}
         </nav>
     )

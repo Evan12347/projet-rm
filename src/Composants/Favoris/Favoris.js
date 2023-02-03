@@ -1,16 +1,22 @@
 import style from "./Favoris.module.css"
-import {useFavoris} from "../../Hook";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
+import {CartePerso} from "../Personnage/CartePerso";
 
 export const Favoris = () => {
 
-    const {favoris, updateFavoris} = useFavoris();
+    const [persosFavoris, setPersosFavoris] = useState([]);
+
+    const favoris = useSelector(state => state.favoris.favoris);
     useEffect(() => {
         (async () => {
-            const results = await (await fetch(`https://rickandmortyapi.com/api/character/[${favoris.join(",")}]`)).json;
+            if (favoris.length === 0) return (
+                setPersosFavoris([])
+            )
+            setPersosFavoris(await (await fetch(`https://rickandmortyapi.com/api/character/[${favoris.join(",")}]`)).json());
         })();
-    }, [])
+    }, [favoris])
 
     return (
         <div className={style.div}>
@@ -18,12 +24,15 @@ export const Favoris = () => {
                 Favoris
             </div>
             <div className={style.liste}>
-                {favoris.map(favori => (
-                    <div key={favori.id} className={style.container}>
-                        <Link to={`/personnage/${favori.id}`}>{favori.name}</Link>
-                    </div>
+                {persosFavoris.map(favori => (
+                    <CartePerso key={favori.id} personnage={favori}/>
                 ))}
             </div>
+            {persosFavoris.length === 0 && (
+                <div className={style.titre}>
+                    Vous n'avez aucun favori.
+                </div>
+            )}
         </div>
     )
 }

@@ -13,3 +13,19 @@
     font-family: "Monaco",sans-serif;
     padding-top: 10px;
 }
+
+.liste{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    grid-gap: 1rem;
+    width: 100%;
+}
+
+@media screen and (max-width: 1000px){
+    .liste{
+        flex-direction: column;
+        align-items: center;
+        width: max-content;
+        margin: 0 auto;
+    }
+}

@@ -1,6 +1,6 @@
 import style from "./ListePersonnage.module.css"
 import {useEffect, useState} from "react";
-import {Link} from "react-router-dom";
+import {CartePerso} from "./CartePerso";
 
 export const ListePersonnage = () => {
 
@@ -30,14 +30,10 @@ export const ListePersonnage = () => {
                 <button className={style.button} onClick={() => loadPersonnages(donnees.next)}>{'Page suivante'}</button>
             </div>
                 <div className={style.liste}>
-                {personnages.map(personnage => (
-                    <div key={personnage.id} className={style.container}>
-                        <Link to={`/personnage/${personnage.id}`}>{personnage.name}</Link>
-                        <img src={personnage.image}/>
-                    </div>
-                ))}
+                    {personnages.map(personnage => (
+                        <CartePerso key={personnage.id} personnage={personnage}/>
+                    ))}
             </div>
         </div>
-
     )
 }

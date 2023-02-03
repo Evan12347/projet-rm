@@ -10,7 +10,11 @@ export const Inscription = ({statut}) => {
     const isPasswordValid = (password) => password.length >= 8;
 
     const handleSubmit = async (event) => {
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
         event.preventDefault();
+        if (!emailRegex.test(email)) {
+            return console.log("Email invalide");
+        }
         if (statut) {
             if (isPasswordValid(password)) {
                 try {

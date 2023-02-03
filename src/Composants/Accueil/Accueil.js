@@ -1,6 +1,7 @@
 import style from "./Accueil.module.css"
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
+import {CartePerso} from "../Personnage/CartePerso";
 
 export const Accueil = () => {
 
@@ -27,13 +28,9 @@ export const Accueil = () => {
             </div>
             <div className={style.liste}>
                 {personnages.map(personnage => (
-                    <div key={personnage.id} className={style.container}>
-                        <img src={personnage.image}/>
-                        <Link to={`/personnage/${personnage.id}`}>{personnage.name}</Link>
-                    </div>
+                    <CartePerso key={personnage.id} personnage={personnage}/>
                 ))}
             </div>
         </div>
     )
-
 }

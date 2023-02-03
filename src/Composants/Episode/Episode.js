@@ -1,6 +1,7 @@
 import style from "./Episode.module.css"
 import {useEffect, useState} from "react";
 import {Link, useParams} from "react-router-dom";
+import {CartePerso} from "../Personnage/CartePerso";
 
 export const Episode = () => {
 
@@ -35,10 +36,7 @@ export const Episode = () => {
             </div>
             <div className={style.liste}>
                 {personnages.map(personnage => (
-                    <div key={personnage.id} className={style.container}>
-                        <Link to={`/personnage/${personnage.id}`}>{personnage.name}</Link>
-                        <img src={personnage.image}/>
-                    </div>
+                    <CartePerso key={personnage.id} personnage={personnage}/>
                 ))}
             </div>
         </div>
