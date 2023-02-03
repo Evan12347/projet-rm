@@ -44,7 +44,9 @@ export const Inscription = ({statut}) => {
 
     return (
         <div className={style.container}>
-            <h1 className={style.titre}>Inscription</h1>
+            <h1 className={style.titre}>
+                {statut ? "Inscription" : "Connexion"}
+            </h1>
             <form onSubmit={handleSubmit}>
                 <input className={style.container}
                        type="email"

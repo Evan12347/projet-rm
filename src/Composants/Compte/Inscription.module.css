@@ -22,4 +22,9 @@
     border-radius: 5px;
     padding: 5px;
     width: 100%;
+    transition: .5s;
+}
+
+.buttonWithIcon:hover{
+    background-color: #2e4372;
 }

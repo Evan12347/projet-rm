@@ -1,6 +1,5 @@
 import style from "./Favoris.module.css"
 import {useEffect, useState} from "react";
-import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {CartePerso} from "../Personnage/CartePerso";
 
