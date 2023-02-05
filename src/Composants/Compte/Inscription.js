@@ -45,27 +45,34 @@ export const Inscription = ({statut}) => {
     }
 
     return (
-        <div className={style.container}>
-            <h1 className={style.titre}>
-                {statut ? "Inscription" : "Connexion"}
-            </h1>
-            <form onSubmit={handleSubmit}>
-                <input className={style.container}
-                       type="email"
-                       placeholder="Email"
-                       value={email}
-                       onChange={(event) => setEmail(event.target.value)}
-                />
-                <input className={style.container}
-                       type="password"
-                       placeholder="Mot de passe"
-                       value={password}
-                       onChange={(event) => setPassword(event.target.value)}
-                />
-                <button type="submit" className={style.buttonWithIcon}>
-                    {statut ? (<><RegisterIcon/>Créer un compte</>) : (<><LoginIcon/>Connexion</>)}
-                </button>
-            </form>
+        <div>
+            <div className={style.validation}>
+                {(testEmail(email) && isPasswordValid(password)) ? "Formulaire valide" : "Formulaire invalide"}
+            </div>
+            <div className={style.container}>
+                <h1 className={style.titre}>
+                    {statut ? "Inscription" : "Connexion"}
+                </h1>
+                <form onSubmit={handleSubmit}>
+                    <input className={style.container}
+                           type="email"
+                           title="Email"
+                           placeholder="Email"
+                           value={email}
+                           onChange={(event) => setEmail(event.target.value)}
+                    />
+                    <input className={style.container}
+                           type="password"
+                           title="Mot de passe"
+                           placeholder="Mot de passe"
+                           value={password}
+                           onChange={(event) => setPassword(event.target.value)}
+                    />
+                    <button type="submit" className={style.buttonWithIcon} title="Valider">
+                        {statut ? (<><RegisterIcon/>Créer un compte</>) : (<><LoginIcon/>Connexion</>)}
+                    </button>
+                </form>
+            </div>
         </div>
     )
 }

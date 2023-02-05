@@ -14,7 +14,6 @@ export const Compte = () => {
 
     return (
         <div>
-            <h1>Compte</h1>
             {userId ? (
                 <div className={style.container}>
                     <div className={style.titre}>

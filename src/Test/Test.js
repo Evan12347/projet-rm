@@ -1,15 +1,26 @@
-function sum(a, b) {
-    return a + b;
-}
-function testEmail(email) {
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    return emailRegex.test(email);
-}
-test('adds 1 + 2 to equal 3', () => {
-    expect(sum(1, 2)).toBe(3);
-});
+import {Inscription, Compte} from "../Composants/Compte";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {render, screen, fireEvent} from "@testing-library/react";
+import "@testing-library/jest-dom";
+it("Test du formulaire", async () => {
+    render(
+        <RouterProvider router={createBrowserRouter(
+            [{path: "*", element: <Inscription/>}]
+        )}/>
+    );
 
-test('email is valid', () => {
-    expect(testEmail('bla@bla')).toBe(false);
-    expect(testEmail('RickSanchez@gmail.com')).toBe(true);
+    const email = screen.getByTitle("Email");
+    const mdp = screen.getByTitle("Mot de passe");
+
+    //Test qui renvoie une erreur
+    fireEvent.input(email, {target: {value: 'Test@quiMarchePas'}});
+    fireEvent.input(mdp, {target: {value: 'MdpNul'}});
+
+    expect(await screen.findByText("Formulaire invalide")).toBeInTheDocument();
+
+    //Test qui marche
+    fireEvent.input(email, {target: {value: 'Test@quiMarche.com'}});
+    fireEvent.input(mdp, {target: {value: 'MdpSuperCool'}});
+
+    expect(await screen.findByText("Formulaire valide")).toBeInTheDocument();
 });

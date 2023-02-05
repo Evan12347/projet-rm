@@ -28,3 +28,7 @@
 .buttonWithIcon:hover{
     background-color: #2e4372;
 }
+
+.validation{
+    visibility: hidden;
+}
