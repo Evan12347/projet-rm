@@ -56,4 +56,9 @@
     top: 5px;
     right: 5px;
     color: red;
+    transition-duration: 1s;
+}
+
+.button:hover{
+    transform: scale(1.15);
 }

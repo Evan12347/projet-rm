@@ -19,6 +19,7 @@ export const Inscription = ({statut}) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (!testEmail(email)) {
+            alert("Format d'email invalide")
             return console.log("Email invalide");
         }
         if (statut) {
@@ -31,6 +32,7 @@ export const Inscription = ({statut}) => {
                 }
             } else {
                 console.log("Mot de passe invalide");
+                alert("Le mot de passe doit contenir au moins 8 caractères.")
             }
         } else {
             try {
