@@ -1,5 +1,4 @@
 import style from "./Accueil.module.css"
-import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {CartePerso} from "../Personnage/CartePerso";
 import {useSelector} from "react-redux";
@@ -30,11 +29,11 @@ export const Accueil = () => {
     }
 
     useEffect(() => {
-        loadPersonnages();
+        loadPersonnages().then();
     }, []);
 
     useEffect(() => {
-        loadFavoris();
+        loadFavoris().then();
     }, [favoris]);
 
     return (
